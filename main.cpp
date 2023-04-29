@@ -1,5 +1,7 @@
 //The file that contain the main function
 #include <iostream>
+#include <fstream>
+#include <vector>
 #include <iomanip>
 #include <string>
 using namespace std;
@@ -17,6 +19,7 @@ int main(){
 		//load the saved game status;
 	}
 	else if(command=="Exit"){
+		cout<<"bye"<<endl;
 		return 0;
 	}
 	else{

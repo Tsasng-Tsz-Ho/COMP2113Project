@@ -1,6 +1,6 @@
-Martinez 92
-Messi 88
-Dybala 81
-DePaul 78
-MacAllister 83
-L.Martinez 79
+GK Martinez 92
+OF Messi 88
+OF Dybala 81
+OF DePaul 78
+OF MacAllister 83
+OF L.Martinez 79

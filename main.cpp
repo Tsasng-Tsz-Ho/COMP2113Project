@@ -15,18 +15,46 @@ int main(){
 	cin>>command;
 	if(command=="New"){
 		//initiate a new game status;
+		ifstream starter;
+		starter.open("starter.txt);
+		vector<Player> your_team = CreateTeam(starter);
+		vector<Player> your_squad = your_team ;
+		int level=1;	    
+		cout<<"Enter view to see your squad"<< endl;
+		string instruction;
+		cin>> instruction;
+		while (instruction != "view"){
+			cout<<"Enter view"<<endl;
+			cin>> instruction;
+		}
+		PrintAll(your_squad);	     
 		cout<<"You have received a new player: 2014_Krul."<<endl;
 		Player new_gk;
 		new_gk.type = "GK";
 		new_gk.name = "2014_Krul";
 		new_gk.power = 90;
+		squad.push_back(new_gk);
 		cout<<"Enter swap to sub in this player."<<endl;
-		string instruction;
 		cin>> instruction;
-		while (instruction != "exit"){
-			if (instruction == "swap"){
-				SwapPlayers(your_team,new_gk,squad[0]);
-			}
+		while (instruction != "swap"){
+			cout<<"Enter swap"<<endl;
+			cin>> instruction;
+		}
+		your_sqaud.push_back(new_gk);	     
+		SwapPlayers(your_team,new_gk,your_team[0]);	    
+		cout<<"This game has three levels. After you win, you can proceed to the next level."<<endl;
+		cout<<"After each game, you could receive a high-power player or boosters."<<endl;
+		cout<<"Enter play to start a game."<<endl;
+		cin >> instruction;
+		while (instruction != "play"){
+			cout<<"Enter play"<<endl;
+			cin>> instruction;
+		}
+		ifstream opponent;
+		opponent.open("Team_1.txt");
+		vector<Player> opponent_team = CreateTeam(opponent);
+		GamePlay(your_team, &level, opponent team);
+			     
 	}
 	else if(command=="Load"){
 		//load the saved game status;

@@ -5,7 +5,7 @@
 using namespace std;
 struct Player{
   string name;
-  int type;
+  string type;
   int power;
 };
 vector<Player> CreateTeam(ifstream x);

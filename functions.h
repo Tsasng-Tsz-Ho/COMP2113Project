@@ -13,5 +13,6 @@ bool OnTarget(Player x);
 bool ScorePastKeeper(Player y,Player z);
 void SwapPlayers(vector<Player> v1,Player p1,Player p2);
 void PrintAll(vector<Player> v2);
+void (vector<Player> &user_team,vector<Player> &user_squad, vector<Player> opponent, int &level);
 
 #endif

@@ -4,6 +4,7 @@
 #include <vector>
 #include <iomanip>
 #include <string>
+#include "functions.h"
 using namespace std;
 
 int main(){
@@ -14,6 +15,18 @@ int main(){
 	cin>>command;
 	if(command=="New"){
 		//initiate a new game status;
+		cout<<"You have received a new player: 2014_Krul."<<endl;
+		Player new_gk;
+		new_gk.type = "GK";
+		new_gk.name = "2014_Krul";
+		new_gk.power = 90;
+		cout<<"Enter swap to sub in this player."<<endl;
+		string instruction;
+		cin>> instruction;
+		while (instruction != "exit"){
+			if (instruction == "swap"){
+				SwapPlayers(your_team,new_gk,squad[0]);
+			}
 	}
 	else if(command=="Load"){
 		//load the saved game status;

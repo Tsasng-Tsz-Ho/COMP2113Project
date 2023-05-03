@@ -1,5 +1,7 @@
 #include "functions.h"
+#include <iostream>
 #include <string>
+using namespace std;
 
 string CompDirection(int num){
   if (num==0){

@@ -9,6 +9,8 @@ void(vector<Player> &user_team,vector<Player> &user_squad, vector<Player> oppone
   cout<<setw(45);
   int user_score=0;
   int opponent_score=0;
+  int ran_num;
+  string ran_direction;
   for (int i=0;i<10;i++){
     if (i%2==0){
       Player shooter=user_team[i/2+1];
@@ -17,7 +19,9 @@ void(vector<Player> &user_team,vector<Player> &user_squad, vector<Player> oppone
       cout<<"Enter L if you want to shoot to the left, M to shoot to the middle, R to shoot to the right."<<endl;
       string direction;
       cin<< direction;
-      int result = Score(shooter,gk,direction);
+      ran_num = rand()%2;
+      ran_direction = CompDirection(rand_num);
+      int result = Score(shooter,gk,direction,ran_direction);
       user_score += result;
     } else{
       Player shooter=opponent[i/2+1];
@@ -25,7 +29,9 @@ void(vector<Player> &user_team,vector<Player> &user_squad, vector<Player> oppone
       cout<<"Enter L if you want to dive to the left, M to stay in the middle, R to dive to the right."<<endl;
       string direction;
       cin<< direction;
-      int result = Score(shooter,gk,direction);
+      ran_num = rand()%2;
+      ran_direction = CompDirection(rand_num);
+      int result = Score(shooter,gk,ran_direction,direction);
       opponent_score += result;
     }
   }

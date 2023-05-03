@@ -1,4 +1,6 @@
+//It returns whether the shooter score when the goal keeper correctly guessed direction
 #include "functions.h"
+#include <cstdlib>
 #include <iostream>
 #include <string>
 using namespace std;

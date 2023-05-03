@@ -5,31 +5,34 @@
 #include <vector>
 using namespace std;
 
-void(vector<Player> &user_team,vector<Player> &user_squad, vector<Player> opponent, int &level){
+void GamePlay(vector<Player> &user_team,vector<Player> &user_squad, vector<Player> opponent, int &level){
   cout<<setw(45);
   int user_score=0;
   int opponent_score=0;
   int ran_num;
   string ran_direction;
+  //The for loop iterates all offensive players have a chance to shoot
   for (int i=0;i<10;i++){
     if (i%2==0){
+      //user's turn to shoot
       Player shooter=user_team[i/2+1];
       cout<<"The penalty taker is "<<shooter.name<<endl;
       Player gk= opponent[0];
       cout<<"Enter L if you want to shoot to the left, M to shoot to the middle, R to shoot to the right."<<endl;
       string direction;
-      cin<< direction;
-      ran_num = rand()%2;
+      cin>>direction;
+      ran_num = rand()%3;
       ran_direction = CompDirection(rand_num);
       int result = Score(shooter,gk,direction,ran_direction);
       user_score += result;
     } else{
+      //opponent's turn to shoot
       Player shooter=opponent[i/2+1];
       Player gk= user_team[0];
       cout<<"Enter L if you want to dive to the left, M to stay in the middle, R to dive to the right."<<endl;
       string direction;
-      cin<< direction;
-      ran_num = rand()%2;
+      cin>>direction;
+      ran_num = rand()%3;
       ran_direction = CompDirection(rand_num);
       int result = Score(shooter,gk,ran_direction,direction);
       opponent_score += result;

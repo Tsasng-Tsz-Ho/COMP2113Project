@@ -42,11 +42,39 @@ void(vector<Player> &user_team,vector<Player> &user_squad, vector<Player> oppone
           user_squad.push_back(p);
       }
      level++;
+     return;
+   }
+   else{
+     cout<<"You have received a new player: Bruno (88 power)."<<endl;
+     Player p;
+     p.name="Bruno";
+     p.type="OF";
+     p.power=88;
+     user_squad.push_back(p);
+     return;
    }
   }
   else if (user_score==opponent_score){
     cout<<"The game ended in a draw."<<endl;
-    cout<<"You received a +1 power booster.";
-    
-    
-    
+    cout<<"You received a +3 power booster."<<endl;
+    cout<<"This is the list of players in your team."<<endl;
+    PrintAll(user_team);
+    cout<<"Enter the name of the player that you wish to apply your booster on."<<endl;
+    string name;
+    Booster(user_team,name,3);
+    cout<<"Booster is applied."<<endl;
+    return;
+  }
+  else{
+    cout<<"The boys gave it their all. We should have won."<<endl;
+    cout<<"You received a +1 power booster."<<endl;
+    cout<<"This is the list of players in your team."<<endl;
+    PrintAll(user_team);
+    cout<<"Enter the name of the player that you wish to apply your booster on."<<endl;
+    string name;
+    Booster(user_team,name,3);
+    cout<<"Booster is applied."<<endl;
+    return;
+  }
+  return;
+}

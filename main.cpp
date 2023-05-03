@@ -13,13 +13,14 @@ int main(){
 	cout<<"Shoot-Out Game"<<endl;
 	cout<<"Enter New to start a new game, Load to load saved game, and Exit to terminate"<<endl;
 	cin>>command;
+	int level;
 	if(command=="New"){
 		//initiate a new game status;
 		ifstream starter;
 		starter.open("starter.txt);
 		vector<Player> your_team = CreateTeam(starter);
 		vector<Player> your_squad = your_team ;
-		int level=1;	    
+		level=1;	    
 		cout<<"Enter view to see your squad"<< endl;
 		string instruction;
 		cin>> instruction;
@@ -42,18 +43,7 @@ int main(){
 		}
 		your_sqaud.push_back(new_gk);	     
 		SwapPlayers(your_team,new_gk,your_team[0]);	    
-		cout<<"This game has three levels. After you win, you can proceed to the next level."<<endl;
-		cout<<"After each game, you could receive a high-power player or boosters."<<endl;
-		cout<<"Enter play to start a game."<<endl;
-		cin >> instruction;
-		while (instruction != "play"){
-			cout<<"Enter play"<<endl;
-			cin>> instruction;
-		}
-		ifstream opponent;
-		opponent.open("Team_1.txt");
-		vector<Player> opponent_team = CreateTeam(opponent);
-		GamePlay(your_team, &level, opponent team);
+		
 			     
 	}
 	else if(command=="Load"){
@@ -68,5 +58,17 @@ int main(){
 		return 0;
 	}
 	//implementation of the game
-	
+	cout<<"This game has three levels. After you win, you can proceed to the next level."<<endl;
+	cout<<"After each game, you could receive a high-power player or boosters."<<endl;
+	cout<<"Enter play to start a game."<<endl;
+	string instruction;		     
+	cin >> instruction;
+	while (instruction != "play"){
+		cout<<"Enter play"<<endl;
+		cin>> instruction;
+	}
+	ifstream opponent;
+	opponent.open("Team_1.txt");
+	vector<Player> opponent_team = CreateTeam(opponent);
+	GamePlay(your_team, &level, opponent team);
 }

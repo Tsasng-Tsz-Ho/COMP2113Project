@@ -4,8 +4,8 @@
 using namespace std;
 
 void PrintAll(vector<Player> team){
-	for(int i=0,i<team.size(),i++){
-		if(team[i].type=="GK"){cout<<"Goal Keeper: ";}else{cout<<"Offensive: ";}
-		cout<<team[i].name<<" "<<team[i].power<<endl;
-	}
+  for(int i=0,i<team.size(),i++){
+    if(team[i].type=="GK"){cout<<"Goal Keeper: ";}else{cout<<"Offensive: ";}
+    cout<<team[i].name<<" "<<team[i].power<<endl;
+  }
 }

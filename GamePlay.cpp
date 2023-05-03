@@ -12,13 +12,20 @@ void(vector<Player> &user_team,vector<Player> &user_squad, vector<Player> oppone
   for (int i=0;i<10;i++){
     if (i%2==0){
       Player shooter=user_team[i/2+1];
+      cout<<"The penalty taker is "<<shooter.name<<endl;
       Player gk= opponent[0];
-      int result = Score(shooter,gk);
+      cout<<"Enter L if you want to shoot to the left, M to shoot to the middle, R to shoot to the right."<<endl;
+      string direction;
+      cin<< direction;
+      int result = Score(shooter,gk,direction);
       user_score += result;
     } else{
       Player shooter=opponent[i/2+1];
       Player gk= user_team[0];
-      int result = Score(shooter,gk);
+      cout<<"Enter L if you want to dive to the left, M to stay in the middle, R to dive to the right."<<endl;
+      string direction;
+      cin<< direction;
+      int result = Score(shooter,gk,direction);
       opponent_score += result;
     }
   }

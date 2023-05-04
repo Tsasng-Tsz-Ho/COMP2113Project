@@ -15,7 +15,7 @@ vector<Player> CreateTeam(istream fin){
   while(fin>>input){
     if(count%3==0){
       temp.type=input;
-      count++
+      count++;
     }else if(count%3==1){
       temp.name=input;
       count++;

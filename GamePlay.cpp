@@ -42,7 +42,14 @@ string GamePlay(GameStatus &match){//(vector<Player> &user_team,vector<Player> &
   }
   if (user_score>opponent_score){
     cout<<"Congratulations, you won!"<<endl;
-    if (level<3){
+    cout<<"You received a +3 power booster."<<endl;
+    cout<<"This is the list of players in your team."<<endl;
+    PrintAll(user_team);
+    cout<<"Enter the name of the player that you wish to apply your booster on."<<endl;
+    string name;
+    Booster(user_team,name,3);
+    cout<<"Booster is applied."<<endl;
+    */ if (level<3){
       cout<<"You have progressed one level."<<endl;
       if (level==1){
         cout<<"You have received a new player: Kane (82 power)."<<endl;
@@ -70,16 +77,16 @@ string GamePlay(GameStatus &match){//(vector<Player> &user_team,vector<Player> &
      p.power=88;
      user_squad.push_back(p);
      return "finish";
-   }
+   } */
   }
   else if (user_score==opponent_score){
     cout<<"The game ended in a draw."<<endl;
-    cout<<"You received a +3 power booster."<<endl;
+    cout<<"You received a +2 power booster."<<endl;
     cout<<"This is the list of players in your team."<<endl;
     PrintAll(user_team);
     cout<<"Enter the name of the player that you wish to apply your booster on."<<endl;
     string name;
-    Booster(user_team,user_squad,name,3);
+    Booster(user_team,name,2);
     cout<<"Booster is applied."<<endl;
     return "finish";
   }
@@ -90,7 +97,7 @@ string GamePlay(GameStatus &match){//(vector<Player> &user_team,vector<Player> &
     PrintAll(user_team);
     cout<<"Enter the name of the player that you wish to apply your booster on."<<endl;
     string name;
-    Booster(user_team,user_squad,name,1);
+    Booster(user_team,name,1);
     cout<<"Booster is applied."<<endl;
     return "finish";
   }

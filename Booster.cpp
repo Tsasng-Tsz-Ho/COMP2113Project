@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 using namespace std;
-void Booster(vector<Player> &user_team, vector<Player> &user_squad, string name,int k){
+void Booster(vector<Player> &user_team, string name,int k){
   cout<<"The maximum power of a player is 90."<<endl;
   while (Search(user_team,name)==-1){
     cout<<"There is no such player in your team."<<endl;
@@ -11,11 +11,9 @@ void Booster(vector<Player> &user_team, vector<Player> &user_squad, string name,
   }
   if (Search(user_team,name).power+k<=90){
     user_team[Search(user_team,name)].power += k;
-    user_squad[Search(user_squad,name)].power += k;
   } 
   else{
     user_team[Search(user_team,name).power=90;
-    user_squad[Search(user_squad,name)].power=90;
   }
   return;          
 }              

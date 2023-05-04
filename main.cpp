@@ -19,10 +19,11 @@ int main(){
   fin.open("SquadUser.txt");
   vector<Player> user_squad = CreateTeam(fin);
   fin.close();
+  MatchStatus match;
 	if(command=="New"){
 		//initiate a new game status;
     fin.open("TeamUser.txt");
-    vector<Player> user_team = CreateTeam(fin);
+    match.user_team = CreateTeam(fin);
     fin.close();
     cout<<"Choose level 1, 2 or 3"<<endl;
     cin>>level;
@@ -36,21 +37,14 @@ int main(){
       cout<<"No such level, please restart"<<endl;
       return 0;
     }
-    vector<Player> opponent_team = CreateTeam(fin);
+    match.opponent_team = CreateTeam(fin);
     fin.close();
-    MatchStatus match={
-      user_team,
-      opponent_team,
-      0, //turn
-      0, //user score
-      0 //opponent score
-    };    
-		
-	}
-	else if(command=="Load"){
+    match.turn=0;
+    match.user_score=0;
+    match.opponent_score=0;
+  }else if(command=="Load"){
 		//load the saved game status;
     fin.open("SaveFile.txt");
-    MatchStatus match;
     Load(fin,match);
     fin.close();
 	}

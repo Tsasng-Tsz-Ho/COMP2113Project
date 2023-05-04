@@ -28,7 +28,7 @@ string GamePlay(MatchStatus &match){//(vector<Player> &user_team,vector<Player> 
       match.user_score += result;
     } else{
       //opponent's turn to shoot
-      Player shooter=match.opponent_team[i/2+1];
+      Player shooter=match.opponent_team[match.turn/2+1];
       Player gk= match.user_team[0];
       cout<<"Enter L if you want to dive to the left, M to stay in the middle, R to dive to the right, S to save."<<endl;
       cin>>direction;

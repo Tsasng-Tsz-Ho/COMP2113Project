@@ -25,16 +25,13 @@ ScorePastKeeper.o: ScorePastKeeper.cpp functions.h
 Search.o: Search.cpp functions.h
 	g++ -c -pedantic-errors -std=c++11 $<
 
-SwapPlayers.o: SwapPlayers.cpp functions.h
-	g++ -c -pedantic-errors -std=c++11 $<
-
 main.o: main.cpp functions.h
 	g++ -c -pedantic-errors -std=c++11 $<
 
-main: Booster.o CompDirection.o GamePlay.o OnTarget.o PrintAll.o SaveLoad.o Score.o ScorePastKeeper.o Search.o SwapPlayers.o main.o
+main: Booster.o CompDirection.o GamePlay.o OnTarget.o PrintAll.o SaveLoad.o Score.o ScorePastKeeper.o Search.o main.o
 	g++ -pedantic-errors -std=c++11 $^ -o main
 
 claen:
-	rm -f main *.o
+	rm -f Booster.o CompDirection.o GamePlay.o OnTarget.o PrintAll.o SaveLoad.o Score.o ScorePastKeeper.o Search.o main.o main
 
 .PHONY: clean

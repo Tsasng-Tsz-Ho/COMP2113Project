@@ -16,7 +16,7 @@ struct MatchStatus{
   int user_score;
   int opponent_score;
 };
-vector<Player> CreateTeam(ifstream x);
+vector<Player> CreateTeam(ifstream fin);
 bool OnTarget(Player x);
 bool ScorePastKeeper(Player y,Player z);
 void Booster(vector<Player> &user_team, string name,int k);

@@ -14,10 +14,33 @@ int main(){
 	cout<<"Enter New to start a new game, Load to load saved game, and Exit to terminate"<<endl;
 	cin>>command;
 	int level;
+  ifstream fin;
+  ofstream fout;
 	if(command=="New"){
 		//initiate a new game status;
-		ifstream starter;
-		starter.open("starter.txt);
+    fin.open("TeamUser.txt");
+    vector<Player> user_team = CreateTeam(fin);
+    fin.close();
+    cout<<"Choose level 1, 2 or 3"<<endl;
+    cin>>level;
+    if(level==1){
+      fin.open("Team_1.txt");
+    }else if(level==2){
+      fin.open("Team_2.txt");
+    }else if(level==3){
+      fin.open("Team_3.txt");
+    }
+    vector<Player> opponent_team = CreateTeam(fin);
+    fin.close();
+    MatchStatus match={
+      user_team,
+      opponent_team,
+      0, //turn
+      0, //user score
+      0 //opponent score
+    };
+		/*ifstream starter;
+		starter.open("starter.txt");
 		vector<Player> your_team = CreateTeam(starter);
 		vector<Player> your_squad = your_team ;
 		level=1;	    
@@ -42,13 +65,30 @@ int main(){
 			cin>> instruction;
 		}
 		your_sqaud.push_back(new_gk);	     
-		SwapPlayers(your_team,new_gk,your_team[0]);	    
-		
-			     
+		SwapPlayers(your_team,new_gk,your_team[0]);*/
 	}
 	else if(command=="Load"){
 		//load the saved game status;
+    fin.open("SaveFile.txt");
+    MatchStatus match=load(fin);
+    fin.close();
 	}
+  else if(command=="Clear"){
+    string line;
+    string[2] write_files={"TeamUser.txt","SquadUser.txt"};
+    for(int i=0;i<2;i++){
+      fin.open("Starter.txt");
+      fout.open(write_files[i].c_str());
+      while(getline(fin,line)){
+        fout<<line<<"\n";
+      }
+      fin.close();
+      fout.close();
+    }
+    fout.open("SaveFile.txt");
+    fout.close();
+    cout<<"Clear complete, please restart."<<endl;
+    return 0;
 	else if(command=="Exit"){
 		cout<<"bye"<<endl;
 		return 0;
@@ -67,8 +107,5 @@ int main(){
 		cout<<"Enter play"<<endl;
 		cin>> instruction;
 	}
-	ifstream opponent;
-	opponent.open("Team_1.txt");
-	vector<Player> opponent_team = CreateTeam(opponent);
-	GamePlay(your_team, &level, opponent team);
+	string match_result=GamePlay(match);
 }

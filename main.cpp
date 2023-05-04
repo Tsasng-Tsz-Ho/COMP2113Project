@@ -41,13 +41,8 @@ int main(){
       0, //turn
       0, //user score
       0 //opponent score
-    };
-		/*ifstream starter;
-		starter.open("starter.txt");
-		vector<Player> your_team = CreateTeam(starter);
-		vector<Player> your_squad = your_team ;
-		level=1;	    
-		cout<<"Enter view to see your squad"<< endl;
+    };    
+		*/cout<<"Enter view to see your squad"<< endl;
 		string instruction;
 		cin>> instruction;
 		while (instruction != "view"){

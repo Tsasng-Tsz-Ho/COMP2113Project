@@ -8,6 +8,13 @@ struct Player{
   string type;
   int power;
 };
+struct MatchStatus{
+  vector<Player> user_team;
+  vector<Player> opponent_team;
+  int turn;
+  int user_score;
+  int opponent_score;
+};
 vector<Player> CreateTeam(ifstream x);
 bool OnTarget(Player x);
 bool ScorePastKeeper(Player y,Player z);

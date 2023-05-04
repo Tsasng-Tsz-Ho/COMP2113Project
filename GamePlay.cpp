@@ -11,45 +11,45 @@ string GamePlay(MatchStatus &match){//(vector<Player> &user_team,vector<Player> 
   int opponent_score=match.opponent_score;
   int ran_num;
   string ran_direction;
+  string direction;
   //The for loop iterates all offensive players have a chance to shoot
-  for (int i=match.turn;i<10;i++){
-    if (i%2==0){
+  for (match.turn;match.turn<10;match.turn++){
+    if (match.turn%2==0){
       //user's turn to shoot
-      Player shooter=match.user_team[i/2+1];
+      Player shooter=match.user_team[match.turn/2+1];
       cout<<"The penalty taker is "<<shooter.name<<endl;
-      Player gk= opponent[0];
+      Player gk= match.opponent_team[0];
       cout<<"Enter L if you want to shoot to the left, M to shoot to the middle, R to shoot to the right, S to save."<<endl;
-      string direction;
       cin>>direction;
       if(direction=="S"){return "save";}
       ran_num = rand()%3;
       ran_direction = CompDirection(rand_num);
       int result = Score(shooter,gk,direction,ran_direction);
-      user_score += result;
+      match.user_score += result;
     } else{
       //opponent's turn to shoot
-      Player shooter=opponent[i/2+1];
-      Player gk= user_team[0];
+      Player shooter=match.opponent_team[i/2+1];
+      Player gk= match.user_team[0];
       cout<<"Enter L if you want to dive to the left, M to stay in the middle, R to dive to the right, S to save."<<endl;
-      string direction;
       cin>>direction;
       if(direction=="S"){return "save";}
       ran_num = rand()%3;
       ran_direction = CompDirection(rand_num);
       int result = Score(shooter,gk,ran_direction,direction);
-      opponent_score += result;
+      match.opponent_score += result;
     }
   }
-  if (user_score>opponent_score){
+  if (match.user_score>match.opponent_score){
     cout<<"Congratulations, you won!"<<endl;
     cout<<"You received a +3 power booster."<<endl;
     cout<<"This is the list of players in your team."<<endl;
-    PrintAll(user_team);
+    PrintAll(match.user_team);
     cout<<"Enter the name of the player that you wish to apply your booster on."<<endl;
     string name;
-    Booster(user_team,name,3);
+    cin>>name;
+    Booster(match.user_team,name,3);
     cout<<"Booster is applied."<<endl;
-    */ if (level<3){
+    /* if (level<3){
       cout<<"You have progressed one level."<<endl;
       if (level==1){
         cout<<"You have received a new player: Kane (82 power)."<<endl;
@@ -83,10 +83,11 @@ string GamePlay(MatchStatus &match){//(vector<Player> &user_team,vector<Player> 
     cout<<"The game ended in a draw."<<endl;
     cout<<"You received a +2 power booster."<<endl;
     cout<<"This is the list of players in your team."<<endl;
-    PrintAll(user_team);
+    PrintAll(match.user_team);
     cout<<"Enter the name of the player that you wish to apply your booster on."<<endl;
     string name;
-    Booster(user_team,name,2);
+    cin>>name;
+    Booster(match.user_team,name,2);
     cout<<"Booster is applied."<<endl;
     return "finish";
   }
@@ -94,10 +95,11 @@ string GamePlay(MatchStatus &match){//(vector<Player> &user_team,vector<Player> 
     cout<<"The boys gave it their all. We should have won."<<endl;
     cout<<"You received a +1 power booster."<<endl;
     cout<<"This is the list of players in your team."<<endl;
-    PrintAll(user_team);
+    PrintAll(match.user_team);
     cout<<"Enter the name of the player that you wish to apply your booster on."<<endl;
     string name;
-    Booster(user_team,name,1);
+    cin>>name;
+    Booster(match.user_team,name,1);
     cout<<"Booster is applied."<<endl;
     return "finish";
   }

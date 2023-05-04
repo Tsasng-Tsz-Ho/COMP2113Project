@@ -10,7 +10,7 @@ void Booster(vector<Player> &user_team, string name,int k){
     cout<<"Enter the name of the player you wish to boost."<<endl;
     cin>>name;
   }
-  if (Search(user_team,name).power+k<=90){
+  if (user_team[Search(user_team,name)].power+k<=90){
     user_team[Search(user_team,name)].power += k;
   } 
   else{

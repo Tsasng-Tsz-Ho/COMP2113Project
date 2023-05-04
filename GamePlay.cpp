@@ -77,7 +77,7 @@ void GamePlay(vector<Player> &user_team,vector<Player> &user_squad, vector<Playe
     PrintAll(user_team);
     cout<<"Enter the name of the player that you wish to apply your booster on."<<endl;
     string name;
-    Booster(user_team,name,3);
+    Booster(user_team,user_squad,name,3);
     cout<<"Booster is applied."<<endl;
     return;
   }
@@ -88,7 +88,7 @@ void GamePlay(vector<Player> &user_team,vector<Player> &user_squad, vector<Playe
     PrintAll(user_team);
     cout<<"Enter the name of the player that you wish to apply your booster on."<<endl;
     string name;
-    Booster(user_team,name,3);
+    Booster(user_team,user_squad,name,1);
     cout<<"Booster is applied."<<endl;
     return;
   }

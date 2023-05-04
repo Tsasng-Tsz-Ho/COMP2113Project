@@ -45,28 +45,7 @@ int main(){
       0, //user score
       0 //opponent score
     };    
-		/*cout<<"Enter view to see your squad"<< endl;
-		string instruction;
-		cin>> instruction;
-		while (instruction != "view"){
-			cout<<"Enter view"<<endl;
-			cin>> instruction;
-		}
-		PrintAll(your_squad);	     
-		cout<<"You have received a new player: 2014_Krul."<<endl;
-		Player new_gk;
-		new_gk.type = "GK";
-		new_gk.name = "2014_Krul";
-		new_gk.power = 90;
-		squad.push_back(new_gk);
-		cout<<"Enter swap to sub in this player."<<endl;
-		cin>> instruction;
-		while (instruction != "swap"){
-			cout<<"Enter swap"<<endl;
-			cin>> instruction;
-		}
-		your_sqaud.push_back(new_gk);	     
-		SwapPlayers(your_team,new_gk,your_team[0]);*/
+		
 	}
 	else if(command=="Load"){
 		//load the saved game status;
@@ -102,6 +81,8 @@ int main(){
 		return 0;
 	}
 	//implementation of the game
+	cout<<"This is your squad."<<endl;
+	PrintAll(user_team);
 	cout<<"This game has three levels. After you win, you can proceed to the next level."<<endl;
 	cout<<"After each game, you could receive boosters to increase power of your players."<<endl;
 	cout<<"Enter play to start a game."<<endl;

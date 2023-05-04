@@ -22,6 +22,7 @@ void Booster(vector<Player> &user_team, string name,int k);
 //void SwapPlayers(vector<Player> v1,Player p1,Player p2);
 void PrintAll(vector<Player> v2);
 int Score(Player shooter,Player gk);
+int Search(vector<Player> user_team,string name);
 string GamePlay(MatchStatus &Match);
 string CompDirection(int d);
 

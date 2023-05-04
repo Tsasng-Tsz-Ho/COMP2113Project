@@ -49,7 +49,7 @@ string GamePlay(GameStatus &match){//(vector<Player> &user_team,vector<Player> &
     string name;
     Booster(user_team,name,3);
     cout<<"Booster is applied."<<endl;
-    */ if (level<3){
+    // if (level<3){
       cout<<"You have progressed one level."<<endl;
       if (level==1){
         cout<<"You have received a new player: Kane (82 power)."<<endl;
@@ -77,7 +77,7 @@ string GamePlay(GameStatus &match){//(vector<Player> &user_team,vector<Player> &
      p.power=88;
      user_squad.push_back(p);
      return "finish";
-   } */
+   } //
   }
   else if (user_score==opponent_score){
     cout<<"The game ended in a draw."<<endl;

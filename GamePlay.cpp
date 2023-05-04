@@ -60,7 +60,7 @@ string GamePlay(GameStatus &match){//(vector<Player> &user_team,vector<Player> &
           user_squad.push_back(p);
       }
      level++;
-     return;
+     return "finish";
    }
    else{
      cout<<"You have received a new player: Bruno (88 power)."<<endl;
@@ -69,7 +69,7 @@ string GamePlay(GameStatus &match){//(vector<Player> &user_team,vector<Player> &
      p.type="OF";
      p.power=88;
      user_squad.push_back(p);
-     return;
+     return "finish";
    }
   }
   else if (user_score==opponent_score){
@@ -81,7 +81,7 @@ string GamePlay(GameStatus &match){//(vector<Player> &user_team,vector<Player> &
     string name;
     Booster(user_team,user_squad,name,3);
     cout<<"Booster is applied."<<endl;
-    return;
+    return "finish";
   }
   else{
     cout<<"The boys gave it their all. We should have won."<<endl;
@@ -92,7 +92,7 @@ string GamePlay(GameStatus &match){//(vector<Player> &user_team,vector<Player> &
     string name;
     Booster(user_team,user_squad,name,1);
     cout<<"Booster is applied."<<endl;
-    return;
+    return "finish";
   }
-  return;
+  return "finish";
 }

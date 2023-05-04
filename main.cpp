@@ -8,12 +8,12 @@
 using namespace std;
 
 int main(){
-	string command;
-	cout<<setw(45);
-	cout<<"Shoot-Out Game"<<endl;
-	cout<<"Enter New to start a new game, Load to load saved game, and Exit to terminate"<<endl;
-	cin>>command;
-	int level;
+  string command;
+  cout<<setw(45);
+  cout<<"Shoot-Out Game"<<endl;
+  cout<<"Enter New to start a new game, Load to load saved game, and Exit to terminate"<<endl;
+  cin>>command;
+  int level;
   ifstream fin;
   ofstream fout;
   fin.open("SquadUser.txt");
@@ -32,6 +32,9 @@ int main(){
       fin.open("Team_2.txt");
     }else if(level==3){
       fin.open("Team_3.txt");
+    }else{
+      cout<<"No such level, please restart"<<endl;
+      return 0;
     }
     vector<Player> opponent_team = CreateTeam(fin);
     fin.close();
@@ -42,7 +45,7 @@ int main(){
       0, //user score
       0 //opponent score
     };    
-		*/cout<<"Enter view to see your squad"<< endl;
+		/*cout<<"Enter view to see your squad"<< endl;
 		string instruction;
 		cin>> instruction;
 		while (instruction != "view"){
@@ -68,10 +71,12 @@ int main(){
 	else if(command=="Load"){
 		//load the saved game status;
     fin.open("SaveFile.txt");
-    MatchStatus match=load(fin);
+    MatchStatus match;
+    Load(fin,match);
     fin.close();
 	}
   else if(command=="Clear"){
+    //It copies the starter team to user's team
     string line;
     string[2] write_files={"TeamUser.txt","SquadUser.txt"};
     for(int i=0;i<2;i++){
@@ -87,6 +92,7 @@ int main(){
     fout.close();
     cout<<"Clear complete, please restart."<<endl;
     return 0;
+  }
 	else if(command=="Exit"){
 		cout<<"bye"<<endl;
 		return 0;
@@ -102,12 +108,19 @@ int main(){
 	string instruction;		     
 	cin >> instruction;
 	while (instruction != "play"){
-		cout<<"Enter play"<<endl;
-		cin>> instruction;
-	}
-	if(GamePlay(match)=="save"){
+    cout<<"Enter play"<<endl;
+    cin>> instruction;
+  }
+  if(GamePlay(match)=="save"){ //GamePlay returns "save" if the user decide to save during a match
     Save(match);
     cout<<"Save complete, goodbye."<<endl;
     return 0;
-  };
+  }
+  fout.open("TeamUser.txt");
+  //save the new team after playing
+  for(int i=0;i<6;i++){
+    fout<<match.user_team[i].type<<" "<<match.user_team[i].name<<" "<<match.user_team[i].power<<"\n";
+  }
+  fout.close();
+  return 0;
 }

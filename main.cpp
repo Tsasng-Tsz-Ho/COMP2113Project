@@ -16,6 +16,9 @@ int main(){
 	int level;
   ifstream fin;
   ofstream fout;
+  fin.open("SquadUser.txt");
+  vector<Player> user_squad = CreateTeam(fin);
+  fin.close();
 	if(command=="New"){
 		//initiate a new game status;
     fin.open("TeamUser.txt");
@@ -107,5 +110,9 @@ int main(){
 		cout<<"Enter play"<<endl;
 		cin>> instruction;
 	}
-	string match_result=GamePlay(match);
+	if(GamePlay(match)=="save"){
+    Save(match);
+    cout<<"Save complete, goodbye."<<endl;
+    return 0;
+  };
 }

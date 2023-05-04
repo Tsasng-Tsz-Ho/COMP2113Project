@@ -97,7 +97,7 @@ int main(){
 	}
 	//implementation of the game
 	cout<<"This game has three levels. After you win, you can proceed to the next level."<<endl;
-	cout<<"After each game, you could receive a high-power player or boosters."<<endl;
+	cout<<"After each game, you could receive boosters to increase power of your players."<<endl;
 	cout<<"Enter play to start a game."<<endl;
 	string instruction;		     
 	cin >> instruction;

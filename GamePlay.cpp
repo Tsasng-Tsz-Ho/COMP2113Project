@@ -5,7 +5,7 @@
 #include <vector>
 using namespace std;
 
-string GamePlay(GameStatus &match){//(vector<Player> &user_team,vector<Player> &user_squad, vector<Player> opponent, int &level){
+string GamePlay(MatchStatus &match){//(vector<Player> &user_team,vector<Player> &user_squad, vector<Player> opponent, int &level){
   cout<<setw(45);
   int user_score=match.user_score;
   int opponent_score=match.opponent_score;

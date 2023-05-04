@@ -23,7 +23,7 @@ string GamePlay(MatchStatus &match){//(vector<Player> &user_team,vector<Player> 
       cin>>direction;
       if(direction=="S"){return "save";}
       ran_num = rand()%3;
-      ran_direction = CompDirection(rand_num);
+      ran_direction = CompDirection(ran_num);
       int result = Score(shooter,gk,direction,ran_direction);
       match.user_score += result;
     } else{
@@ -34,7 +34,7 @@ string GamePlay(MatchStatus &match){//(vector<Player> &user_team,vector<Player> 
       cin>>direction;
       if(direction=="S"){return "save";}
       ran_num = rand()%3;
-      ran_direction = CompDirection(rand_num);
+      ran_direction = CompDirection(ran_num);
       int result = Score(shooter,gk,ran_direction,direction);
       match.opponent_score += result;
     }

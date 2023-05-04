@@ -20,7 +20,7 @@ void Save(MatchStatus match){
   fout.close();
 }
 
-String Load(ifstream fin, MatchStatus &match){
+string Load(ifstream fin, MatchStatus &match){
   if(fin.peek()==EOF){return "no save";}
   string temp_power;
   vector<Player> temp_team;

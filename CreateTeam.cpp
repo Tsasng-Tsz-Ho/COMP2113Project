@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-vector<Player> CreateTeam(ifstream fin){
+vector<Player> CreateTeam(istream fin){
   //It makes a team
   //It takes a input file stream as arguement
   //and out put a vector of players as a team

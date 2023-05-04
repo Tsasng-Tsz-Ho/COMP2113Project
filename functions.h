@@ -2,6 +2,7 @@
 #define FUNCTIONS
 #include <string>
 #include <fstream>
+#include <vector>
 using namespace std;
 struct Player{
   string name;

@@ -33,3 +33,8 @@ main.o: main.cpp functions.h
 
 main: Booster.o CompDirection.o GamePlay.o OnTarget.o PrintAll.o SaveLoad.o Score.o ScorePastKeeper.o Search.o SwapPlayers.o main.o
 	g++ -pedantic-errors -std=c++11 $^ -o main
+
+claen:
+	rm -f main *.o
+
+.PHONY: clean

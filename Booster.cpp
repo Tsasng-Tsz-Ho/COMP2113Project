@@ -13,7 +13,7 @@ void Booster(vector<Player> &user_team, string name,int k){
     user_team[Search(user_team,name)].power += k;
   } 
   else{
-    user_team[Search(user_team,name).power=90;
+    user_team[Search(user_team,name)].power=90;
   }
   return;          
 }              

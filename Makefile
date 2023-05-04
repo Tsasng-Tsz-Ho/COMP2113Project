@@ -4,6 +4,9 @@ Booster.o: Booster.cpp functions.h
 CompDirection.o: CompDirection.cpp functions.h
 	g++ -c -pedantic-errors -std=c++11 $<
 
+CreateTeam.o: CreateTeam.cpp functions.h
+	g++ -c -pedantic-errors -std=c++11 $<
+
 GamePlay.o: GamePlay.cpp functions.h
 	g++ -c -pedantic-errors -std=c++11 $<
 
@@ -28,10 +31,10 @@ Search.o: Search.cpp functions.h
 main.o: main.cpp functions.h
 	g++ -c -pedantic-errors -std=c++11 $<
 
-main: Booster.o CompDirection.o GamePlay.o OnTarget.o PrintAll.o SaveLoad.o Score.o ScorePastKeeper.o Search.o main.o
+main: Booster.o CompDirection.o CreateTeam.o GamePlay.o OnTarget.o PrintAll.o SaveLoad.o Score.o ScorePastKeeper.o Search.o main.o
 	g++ -pedantic-errors -std=c++11 $^ -o main
 
-claen:
-	rm -f Booster.o CompDirection.o GamePlay.o OnTarget.o PrintAll.o SaveLoad.o Score.o ScorePastKeeper.o Search.o main.o main
+clean:
+	rm -f Booster.o CompDirection.o CreateTeam.o GamePlay.o OnTarget.o PrintAll.o SaveLoad.o Score.o ScorePastKeeper.o Search.o main.o main
 
 .PHONY: clean

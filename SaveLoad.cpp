@@ -20,10 +20,10 @@ void Save(MatchStatus match){
   fout.close();
 }
 
-string Load(ifstream fin, MatchStatus &match){
+string Load(MatchStatus &match){
+  ifstream fin;
+  fin.open("SaveFile.txt");
   if(fin.peek()==EOF){return "no save";}
-  string temp_power;
-  vector<Player> temp_team;
   for(int i=0;i<6;i++){
     fin>>match.user_team[i].type>>match.user_team[i].name>>match.user_team[i].power;
   }
@@ -31,5 +31,6 @@ string Load(ifstream fin, MatchStatus &match){
     fin>>match.opponent_team[i].type>>match.opponent_team[i].name>>match.opponent_team[i].power;
   }
   fin>>match.turn>>match.user_score>>match.opponent_score;
+  fin.close();
   return "done";
 }

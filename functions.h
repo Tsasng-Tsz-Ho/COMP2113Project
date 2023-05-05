@@ -16,7 +16,7 @@ struct MatchStatus{
   int user_score;
   int opponent_score;
 };
-vector<Player> CreateTeam(istream fin);
+vector<Player> CreateTeam(string file_name);
 bool OnTarget(Player x);
 bool ScorePastKeeper(Player y,Player z);
 void Booster(vector<Player> &user_team, string name,int k);
@@ -26,5 +26,5 @@ int Search(vector<Player> user_team,string name);
 string GamePlay(MatchStatus &Match);
 string CompDirection(int d);
 void Save(MatchStatus match);
-string Load(ifstream fin,MatchStatus &match);
+string Load(MatchStatus &match);
 #endif

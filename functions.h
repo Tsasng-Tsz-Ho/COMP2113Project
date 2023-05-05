@@ -24,7 +24,7 @@ void PrintAll(vector<Player> v2);
 int Score(Player shooter,Player gk,string shooter_direction,string gk_direction);
 int Search(vector<Player> user_team,string name);
 string GamePlay(MatchStatus &Match);
-string CompDirection(int d);
+string CompDirection();
 void Save(MatchStatus match);
 string Load(MatchStatus &match);
 #endif

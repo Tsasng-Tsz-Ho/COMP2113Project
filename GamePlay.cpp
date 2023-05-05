@@ -5,10 +5,10 @@
 #include <vector>
 using namespace std;
 
-string GamePlay(MatchStatus &match){//(vector<Player> &user_team,vector<Player> &user_squad, vector<Player> opponent, int &level){
-  cout<<setw(45);
-  /*int user_score=match.user_score;
-  int opponent_score=match.opponent_score;*/
+string GamePlay(MatchStatus &match){
+  //Arg: a struct of match status that contains both teams, turn and scores passed by reference
+  //return value: if the player choose to save during a match, it returns a string "save" and saving is done in main
+  //else, the match is finished normally and return "finish"
   int ran_num;
   string ran_direction;
   string direction;
@@ -46,39 +46,11 @@ string GamePlay(MatchStatus &match){//(vector<Player> &user_team,vector<Player> 
     cout<<"This is the list of players in your team."<<endl;
     PrintAll(match.user_team);
     cout<<"Enter the name of the player that you wish to apply your booster on."<<endl;
+    cout<<"The maximum power of a player is 90."<<endl;
     string name;
     cin>>name;
     Booster(match.user_team,name,3);
     cout<<"Booster is applied."<<endl;
-    /* if (level<3){
-      cout<<"You have progressed one level."<<endl;
-      if (level==1){
-        cout<<"You have received a new player: Kane (82 power)."<<endl;
-        Player p;
-        p.name="Kane";
-        p.type="OF";
-        p.power=82;
-        user_squad.push_back(p);
-      } else{
-          cout<<"You have received a new player: Mbappe (88 power)."<<endl;
-          Player p;
-          p.name="Mbappe";
-          p.type="OF";
-          p.power=88;
-          user_squad.push_back(p);
-      }
-     level++;
-     return "finish";
-   }
-   else{
-     cout<<"You have received a new player: Bruno (88 power)."<<endl;
-     Player p;
-     p.name="Bruno";
-     p.type="OF";
-     p.power=88;
-     user_squad.push_back(p);
-     return "finish";
-   } */
   }
   else if (match.user_score==match.opponent_score){
     cout<<"The game ended in a draw."<<endl;
@@ -86,6 +58,7 @@ string GamePlay(MatchStatus &match){//(vector<Player> &user_team,vector<Player> 
     cout<<"This is the list of players in your team."<<endl;
     PrintAll(match.user_team);
     cout<<"Enter the name of the player that you wish to apply your booster on."<<endl;
+    cout<<"The maximum power of a player is 90."<<endl;
     string name;
     cin>>name;
     Booster(match.user_team,name,2);
@@ -98,6 +71,7 @@ string GamePlay(MatchStatus &match){//(vector<Player> &user_team,vector<Player> 
     cout<<"This is the list of players in your team."<<endl;
     PrintAll(match.user_team);
     cout<<"Enter the name of the player that you wish to apply your booster on."<<endl;
+    cout<<"The maximum power of a player is 90."<<endl;
     string name;
     cin>>name;
     Booster(match.user_team,name,1);

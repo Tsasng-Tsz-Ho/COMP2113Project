@@ -7,8 +7,8 @@ using namespace std;
 
 string GamePlay(MatchStatus &match){//(vector<Player> &user_team,vector<Player> &user_squad, vector<Player> opponent, int &level){
   cout<<setw(45);
-  int user_score=match.user_score;
-  int opponent_score=match.opponent_score;
+  /*int user_score=match.user_score;
+  int opponent_score=match.opponent_score;*/
   int ran_num;
   string ran_direction;
   string direction;
@@ -80,7 +80,7 @@ string GamePlay(MatchStatus &match){//(vector<Player> &user_team,vector<Player> 
      return "finish";
    } */
   }
-  else if (user_score==opponent_score){
+  else if (match.user_score==match.opponent_score){
     cout<<"The game ended in a draw."<<endl;
     cout<<"You received a +2 power booster."<<endl;
     cout<<"This is the list of players in your team."<<endl;

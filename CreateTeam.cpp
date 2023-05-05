@@ -4,14 +4,16 @@
 #include <vector>
 using namespace std;
 
-vector<Player> CreateTeam(istream fin){
+vector<Player> CreateTeam(string file_name){
   //It makes a team
-  //It takes a input file stream as arguement
+  //It takes a input file name as arguement
   //and out put a vector of players as a team
   string input;
   int count;
   Player temp;
   vector<Player> result;
+  ifstream fin;
+  fin.open(file_name.c_str());
   while(fin>>input){
     if(count%3==0){
       temp.type=input;

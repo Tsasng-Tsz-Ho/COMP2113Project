@@ -19,32 +19,26 @@ int main(){
   MatchStatus match;
   if(command=="New"){
     //initiate a new game status;
-    fin.open("TeamUser.txt");
-    match.user_team = CreateTeam(fin);
-    fin.close();
+    match.user_team = CreateTeam("TeamUser.txt");
     cout<<"Choose level 1, 2 or 3"<<endl;
     cin>>level;
     if(level==1){
-      fin.open("Team_1.txt");
+      match.opponent_team = CreateTeam("Team_1.txt");
     }else if(level==2){
-      fin.open("Team_2.txt");
+      match.opponent_team = CreateTeam("Team_2.txt");
     }else if(level==3){
-      fin.open("Team_3.txt");
+      match.opponent_team = CreateTeam("Team_3.txt");
     }else{
       cout<<"No such level, please restart"<<endl;
       return 0;
     }
-    match.opponent_team = CreateTeam(fin);
-    fin.close();
     match.turn=0;
     match.user_score=0;
     match.opponent_score=0;
   }else if(command=="Load"){
     //load the saved game status;
-    fin.open("SaveFile.txt");
-    Load(fin,match);
-    fin.close();
-	}
+    Load(match);
+  }
   else if(command=="Clear"){
     //It copies the starter team to user's team
     string line;
@@ -87,7 +81,7 @@ int main(){
     return 0;
   }
   fout.open("TeamUser.txt");
-  //save the new team after playing
+  //save the team in a file after playing
   for(int i=0;i<6;i++){
     fout<<match.user_team[i].type<<" "<<match.user_team[i].name<<" "<<match.user_team[i].power<<"\n";
   }

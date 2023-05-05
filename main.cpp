@@ -16,12 +16,9 @@ int main(){
   int level;
   ifstream fin;
   ofstream fout;
-  fin.open("SquadUser.txt");
-  vector<Player> user_squad = CreateTeam(fin);
-  fin.close();
   MatchStatus match;
-	if(command=="New"){
-		//initiate a new game status;
+  if(command=="New"){
+    //initiate a new game status;
     fin.open("TeamUser.txt");
     match.user_team = CreateTeam(fin);
     fin.close();
@@ -43,7 +40,7 @@ int main(){
     match.user_score=0;
     match.opponent_score=0;
   }else if(command=="Load"){
-		//load the saved game status;
+    //load the saved game status;
     fin.open("SaveFile.txt");
     Load(fin,match);
     fin.close();
@@ -51,38 +48,36 @@ int main(){
   else if(command=="Clear"){
     //It copies the starter team to user's team
     string line;
-    string[2] write_files={"TeamUser.txt","SquadUser.txt"};
-    for(int i=0;i<2;i++){
-      fin.open("Starter.txt");
-      fout.open(write_files[i].c_str());
-      while(getline(fin,line)){
-        fout<<line<<"\n";
-      }
-      fin.close();
-      fout.close();
+    fin.open("Starter.txt");
+    fout.open("TeamUser.txt");
+    while(getline(fin,line)){
+      fout<<line<<"\n";
+    }
+    fin.close();
+    fout.close();
     }
     fout.open("SaveFile.txt");
     fout.close();
     cout<<"Clear complete, please restart."<<endl;
     return 0;
   }
-	else if(command=="Exit"){
-		cout<<"bye"<<endl;
-		return 0;
-	}
-	else{
-		cout<<"Invalid command, please restart"<<endl;
-		return 0;
-	}
-	//implementation of the game
-	cout<<"This is your squad."<<endl;
-	PrintAll(user_team);
-	cout<<"This game has three levels. After you win, you can proceed to the next level."<<endl;
-	cout<<"After each game, you could receive boosters to increase power of your players."<<endl;
-	cout<<"Enter play to start a game."<<endl;
-	string instruction;		     
-	cin >> instruction;
-	while (instruction != "play"){
+  else if(command=="Exit"){
+    cout<<"bye"<<endl;
+    return 0;
+  }
+  else{
+    cout<<"Invalid command, please restart"<<endl;
+    return 0;
+  }
+  //implementation of the game
+  cout<<"This is your squad."<<endl;
+  PrintAll(user_team);
+  cout<<"This game has three levels. After you win, you can proceed to the next level."<<endl;
+  cout<<"After each game, you could receive boosters to increase power of your players."<<endl;
+  cout<<"Enter play to start a game."<<endl;
+  string instruction;		     
+  cin >> instruction;
+  while (instruction != "play"){
     cout<<"Enter play"<<endl;
     cin>> instruction;
   }

@@ -36,6 +36,7 @@ string Load(MatchStatus &match){
     temp_team.push_back(temp);
   }
   match.user_team=temp_team;
+  temp_team.clear();
   for(int i=0;i<6;i++){
     fin>>temp.type>>temp.name>>temp.power;
     temp_team.push_back(temp);

@@ -38,6 +38,7 @@ string GamePlay(MatchStatus &match){//(vector<Player> &user_team,vector<Player> 
       int result = Score(shooter,gk,ran_direction,direction);
       match.opponent_score += result;
     }
+    cout<<"You "<<match.user_score<<" : "<<match.opponent_score<<" Opponent"<<endl;
   }
   if (match.user_score>match.opponent_score){
     cout<<"Congratulations, you won!"<<endl;

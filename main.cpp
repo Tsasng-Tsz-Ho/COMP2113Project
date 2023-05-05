@@ -49,7 +49,6 @@ int main(){
     }
     fin.close();
     fout.close();
-    }
     fout.open("SaveFile.txt");
     fout.close();
     cout<<"Clear complete, please restart."<<endl;
@@ -65,7 +64,7 @@ int main(){
   }
   //implementation of the game
   cout<<"This is your squad."<<endl;
-  PrintAll(user_team);
+  PrintAll(match.user_team);
   cout<<"This game has three levels. After you win, you can proceed to the next level."<<endl;
   cout<<"After each game, you could receive boosters to increase power of your players."<<endl;
   cout<<"Enter play to start a game."<<endl;

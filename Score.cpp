@@ -1,4 +1,3 @@
-//Determine whether the shooter score and return 1 if score and 0 if not score
 #include "functions.h"
 #include <iostream>
 #include <string>
@@ -7,7 +6,12 @@
 using namespace std;
 
 int Score(Player shooter,Player gk,string shooter_direction, string gk_direction){
-  cout<<setw(45);
+  //Determine whether the shooter score
+  //Arg 1: the player that shoot
+  //Arg 2: the player that is the goalkeeper
+  //Arg 3: a string of "L", "M", or "R" that indicates the direction the shooter shoots
+  //Arg 4: a string of "L", "M", or "R" that indicates the direction the goalkeeper dives
+  //return value: return 1 if score and 0 if not score
   if (OnTarget(shooter)==false){
     cout<<"He shot the ball straight to the sky! The pressure is surely getting to him!"<<endl;
     return 0;

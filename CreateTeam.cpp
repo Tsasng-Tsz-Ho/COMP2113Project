@@ -9,7 +9,7 @@ vector<Player> CreateTeam(string file_name){
   //It takes a input file name as arguement
   //and out put a vector of players as a team
   string input;
-  int count;
+  int count=0;
   Player temp;
   vector<Player> result;
   ifstream fin;

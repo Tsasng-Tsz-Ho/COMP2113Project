@@ -28,6 +28,7 @@ string GamePlay(MatchStatus &match){
     } else{
       //opponent's turn to shoot
       Player shooter=match.opponent_team[match.turn/2+1];
+      cout<<"The penalty taker is "<<shooter.name<<endl;
       Player gk= match.user_team[0];
       cout<<"Enter L if you want to dive to the left, M to stay in the middle, R to dive to the right, S to save."<<endl;
       cin>>direction;

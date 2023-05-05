@@ -28,13 +28,19 @@ string Load(MatchStatus &match){
   //return value: if there is no previous save, return "no save" else return "done"
   ifstream fin;
   fin.open("SaveFile.txt");
-  if(fin.peek()==1){return "no save";}
+  if(fin.fail()){return "no save";}
+  Player temp;
+  vector<Player> temp_team;
   for(int i=0;i<6;i++){
-    fin>>match.user_team[i].type>>match.user_team[i].name>>match.user_team[i].power;
+    fin>>temp.type>>temp.name>>temp.power;
+    temp_team.push_back(temp);
   }
+  match.user_team=temp_team;
   for(int i=0;i<6;i++){
-    fin>>match.opponent_team[i].type>>match.opponent_team[i].name>>match.opponent_team[i].power;
+    fin>>temp.type>>temp.name>>temp.power;
+    temp_team.push_back(temp);
   }
+  match.opponent_team=temp_team;
   fin>>match.turn>>match.user_score>>match.opponent_score;
   fin.close();
   return "done";

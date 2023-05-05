@@ -32,7 +32,6 @@ string GamePlay(MatchStatus &match){
       cout<<"Enter L if you want to dive to the left, M to stay in the middle, R to dive to the right, S to save."<<endl;
       cin>>direction;
       if(direction=="S"){return "save";}
-      ran_num = rand()%3;
       ran_direction = CompDirection();
       int result = Score(shooter,gk,ran_direction,direction);
       match.opponent_score += result;

@@ -11,7 +11,7 @@ int main(){
   string command;
   cout<<setw(45);
   cout<<"Shoot-Out Game"<<endl;
-  cout<<"Enter New to start a new game, Load to load saved game, and Exit to terminate"<<endl;
+  cout<<"Enter New to start a new game, Load to load saved game, Clear to delete game progress, and Exit to terminate"<<endl;
   cin>>command;
   int level;
   ifstream fin;
@@ -50,6 +50,7 @@ int main(){
     fin.close();
     fout.close();
     fout.open("SaveFile.txt");
+    fout<<1;
     fout.close();
     cout<<"Clear complete, please restart."<<endl;
     return 0;

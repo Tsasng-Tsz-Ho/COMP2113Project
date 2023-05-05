@@ -37,7 +37,11 @@ int main(){
     match.opponent_score=0;
   }else if(command=="Load"){
     //load the saved game status;
-    Load(match);
+    if(Load(match)=="no save"){
+      cout<<"Save file not found, please restart and play a new match."<<endl;
+      return 0;
+    }
+    cout<<"Load Successful"<<endl;
   }
   else if(command=="Clear"){
     //It copies the starter team to user's team
@@ -49,9 +53,7 @@ int main(){
     }
     fin.close();
     fout.close();
-    fout.open("SaveFile.txt");
-    fout<<1;
-    fout.close();
+    remove("SaveFile.txt");
     cout<<"Clear complete, please restart."<<endl;
     return 0;
   }

@@ -85,5 +85,6 @@ int main(){
     fout<<match.user_team[i].type<<" "<<match.user_team[i].name<<" "<<match.user_team[i].power<<"\n";
   }
   fout.close();
+  cout<<"Match over, it is a good game, see you next time!"<<endl;
   return 0;
 }

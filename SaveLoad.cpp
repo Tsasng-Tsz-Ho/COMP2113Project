@@ -28,7 +28,7 @@ string Load(MatchStatus &match){
   //return value: if there is no previous save, return "no save" else return "done"
   ifstream fin;
   fin.open("SaveFile.txt");
-  if(fin.peek()==EOF){return "no save";}
+  if(fin.peek()==1){return "no save";}
   for(int i=0;i<6;i++){
     fin>>match.user_team[i].type>>match.user_team[i].name>>match.user_team[i].power;
   }
